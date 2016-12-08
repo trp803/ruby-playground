@@ -1,0 +1,61 @@
+# Get My Number Game
+# Written by: me!
+
+puts "Welcome to 'Get my number game!'"
+
+print "What's your name? "
+input = gets
+name = input.chomp
+puts "Welcome, #{name}!"
+
+puts "I've got a random number between 1 and 100"
+puts "Can you guess it?"
+target = rand(100) + 1
+
+num_guesses = 0
+guesses_it = false
+
+until num_guesses == 10 || guesses_it
+
+  puts "You've got #{10 - num_guesses} guesses left."
+
+  print "Make a guess: "
+  guess = gets.to_i
+  num_guesses += 1
+
+  if guess < target
+    puts "Oops. Your guess was LOW."
+  elsif guess > target
+    puts "Oops. Your guess was HIGH."
+  elsif guess == target
+    puts "Good job, #{name}!"
+    puts "You guessed my number in #{num_guesses} guesses!"
+    guesses_it = true
+  end
+end
+
+unless guesses_it
+  puts "Sorry. You didn't get my number. (It was #{target}.)"
+end
+
+
+
+# some ex
+puts " "
+puts "------------some ex------------"
+puts "The ansver is #{6 * 7}."
+
+# "inspect" "p"
+puts input.inspect
+p input
+
+# "chomp"
+name = input.chomp
+puts "Welcome, #{name}!"
+p name
+
+#
+# puts 42.methods
+puts 42.class
+puts "hello".class
+puts true.class
